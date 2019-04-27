@@ -1,3 +1,3 @@
 #!/bin/bash
 
-space-battle -bin $1 $2
+./space-battle-bin $1 $2

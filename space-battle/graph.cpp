@@ -4,38 +4,45 @@
 
 struct node* createNode(int v)
 {
-    struct node* newNode = (node*)malloc(sizeof(struct node));
+    struct node *newNode = (node*)malloc(sizeof(struct node));
     newNode->vertex = v;
     newNode->next = NULL;
     return newNode;
 }
- 
+
 struct Graph* createGraph(int vertex)
 {
-    struct Graph* graph = (Graph*)malloc(sizeof(struct Graph));
+    struct Graph *graph = (Graph*)malloc(sizeof(struct Graph));
+
     graph->numVertex = vertex;
+    graph->visited = (int*)malloc(vertex * sizeof(int));
+    graph->timeDiscovery = (int*)malloc(vertex * sizeof(int));
+    graph->timeClose = (int*)malloc(vertex * sizeof(int));
     graph->adjLists = (node**)malloc(vertex * sizeof(struct node*));
- 
+
     int i;
-    for (i = 0; i < vertex; i++)
+    for (i = 0; i < vertex; i++){
+        graph->visited[i] = 0; // White
+        graph->timeDiscovery[i] = 0;
+        graph->timeClose[i] = 0;
         graph->adjLists[i] = NULL;
- 
+    }
     return graph;
 }
- 
+
 void addEdge(struct Graph *graph, int src, int dest)
 {
-    // Add edge from src to dest
-    struct node* newNode = createNode(dest);
+    //src to dest
+    struct node *newNode = createNode(dest);
     newNode->next = graph->adjLists[src];
     graph->adjLists[src] = newNode;
- 
-    // Add edge from dest to src
+
+    //dest to src
     newNode = createNode(src);
     newNode->next = graph->adjLists[dest];
     graph->adjLists[dest] = newNode;
 }
- 
+
 void printGraph(struct Graph *graph)
 {
     int v;
