@@ -44,13 +44,6 @@ int* DFS(struct Graph *graph, int graphVertex, int *space_battle_results){
         }
         nVertex = nEdges = nLeaves = 0;
     }
-
-    // Ships
-    printf("\nSHIPS:\n");
-    for(int i=0; i<4; i++){
-        printf("%d ", space_battle_results[i]);
-    }
-
     return space_battle_results;
 }
 
