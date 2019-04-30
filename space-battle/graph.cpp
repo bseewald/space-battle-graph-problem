@@ -32,12 +32,12 @@ struct Graph* createGraph(int vertex)
 
 void addEdge(struct Graph *graph, int src, int dest)
 {
-    //src to dest
+    // src to dest
     struct node *newNode = createNode(dest);
     newNode->next = graph->adjLists[src];
     graph->adjLists[src] = newNode;
 
-    //dest to src
+    // dest to src
     newNode = createNode(src);
     newNode->next = graph->adjLists[dest];
     graph->adjLists[dest] = newNode;
@@ -49,7 +49,6 @@ void printGraph(struct Graph *graph)
     for (v = 0; v < graph->numVertex; v++)
     {
         struct node* temp = graph->adjLists[v];
-        printf("\n Adjacency list of vertex %d\n ", v);
         while (temp)
         {
             printf("%d -> ", temp->vertex);
