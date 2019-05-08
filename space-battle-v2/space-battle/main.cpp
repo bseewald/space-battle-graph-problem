@@ -1,8 +1,7 @@
 #include <iostream>
 #include <fstream>
-// #include <string.h>
 #include <inttypes.h>
-// #include <sys/time.h>
+#include <stdlib.h>
 #include "graph.h"
 #include "dfs.h"
 

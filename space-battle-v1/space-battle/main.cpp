@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <inttypes.h>
+#include <stdlib.h>
 #include "graph.h"
 #include "dfs.h"
 
@@ -13,8 +14,8 @@ int main(int argc, char* argv[])
         return -1;
     }
 
-    struct timespec start, end;
-    clock_gettime(CLOCK_MONOTONIC_RAW, &start);
+    //struct timespec start, end;
+    //clock_gettime(CLOCK_MONOTONIC_RAW, &start);
 
     ifstream infile(argv[1]); // Open file
 
@@ -55,9 +56,9 @@ int main(int argc, char* argv[])
         free(space_battle_results);
         free(graph);
 
-        clock_gettime(CLOCK_MONOTONIC_RAW, &end);
-        uint64_t delta = (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_nsec - start.tv_nsec) / 1000;
-        printf("\nExecution time: %" PRIu64 " microseconds\n", delta);
+        //clock_gettime(CLOCK_MONOTONIC_RAW, &end);
+        //uint64_t delta = (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_nsec - start.tv_nsec) / 1000;
+        //printf("\nExecution time: %" PRIu64 " microseconds\n", delta);
     } else {
         cout << "\nFailed to open file..\n";
     }

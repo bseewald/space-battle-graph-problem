@@ -16,7 +16,7 @@ int* DFS(struct Graph *graph, int graphVertex, int *space_battle_results, int *s
     int shipTime;
     int vertexNodesVisited = 1;
     int *vertexNodes = (int*)malloc(graphVertex+1 * sizeof(int));
-    
+
     // Initialize values
     for(int i=0; i<=graphVertex; i++){
         vertexNodes[i] = 0;

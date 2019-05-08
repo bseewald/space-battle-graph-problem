@@ -11,7 +11,7 @@ int totalTime = 0;
 
 // Recursive algorithm
 int* DFS(struct Graph *graph, int graphVertex, int *space_battle_results){
-    
+
     // Initialized values
     for(int i=0; i<=4; i++){
         space_battle_results[i] = 0;
