@@ -18,7 +18,7 @@ int* DFS(struct Graph *graph, int graphVertex, int *space_battle_results){
     }
 
     // For each vertex on graph
-    for(int i=1; i<graphVertex; i++){
+    for(int i=1; i<=graphVertex; i++){
         if(graph->visited[i] == 0){ // White vertex
             DFS_Visit(graph, i);
 
@@ -66,6 +66,7 @@ void DFS_Visit(struct Graph *graph, int vertex) {
         }
         temp = temp->next;
     }
+
     totalTime += 1;
     nVertex +=1;
     nEdges += nNeighbors;

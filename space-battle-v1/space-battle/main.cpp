@@ -9,13 +9,10 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-    if (argc < 1) {
-        cout << "\nNo file names entered. Exiting...\n";
+    if (argc < 3) {
+        cout << "\nMissing filenames. Exiting...\n";
         return -1;
     }
-
-    //struct timespec start, end;
-    //clock_gettime(CLOCK_MONOTONIC_RAW, &start);
 
     ifstream infile(argv[1]); // Open file
 
@@ -27,7 +24,9 @@ int main(int argc, char* argv[])
         totalEdges = teleportAmountAvaliable = m;
 
         int *space_battle_results = (int*)malloc(5 * sizeof(int));
-        struct Graph *graph = createGraph(combatStations);
+
+        // Considering first vertex as 1 not 0, so +1 position required
+        struct Graph *graph = createGraph(combatStations + 1);
 
         while (infile >> n >> m)
         {
@@ -55,12 +54,8 @@ int main(int argc, char* argv[])
 
         free(space_battle_results);
         free(graph);
-
-        //clock_gettime(CLOCK_MONOTONIC_RAW, &end);
-        //uint64_t delta = (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_nsec - start.tv_nsec) / 1000;
-        //printf("\nExecution time: %" PRIu64 " microseconds\n", delta);
     } else {
-        cout << "\nFailed to open file..\n";
+        cout << "\nFailed to open file\n";
     }
     return 0;
 }
